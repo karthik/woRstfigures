@@ -1,5 +1,5 @@
 ---
-title: "woRstfigures"
+title: "woRstfigures or beStfigures?"
 author: "Carson Sievert"
 date: "September 18, 2014"
 output: html_document
