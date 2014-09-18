@@ -1,0 +1,28 @@
+---
+title: "woRstfigures"
+author: "Carson Sievert"
+date: "September 18, 2014"
+output: html_document
+---
+
+To begin, we obviously need an image of a feline to enhance our scatterplot (using [rphylopic](https://github.com/sckott/rphylopic))
+
+```{r}
+library('rphylopic')
+img <- get_image("aa8228b9-9e7f-41e9-bf16-ad0dc488f1db", size = "512")[[1]]
+# @sckott, if you're watching, I got help from here -- http://stackoverflow.com/questions/12918367/in-r-how-to-plot-with-a-png-as-background
+with(iris, plot(Sepal.Length, Sepal.Width, main="Silly kitty, get out of the way, I'm trying to do work here!"))
+lim <- par()
+rasterImage(img, lim$usr[1], lim$usr[3], lim$usr[2], lim$usr[4])
+```
+
+This lovely 3D pie chart was shamelessly lifted from `help(pie3D)`. 
+
+```{r}
+library('plotrix')
+pieval <- c(2,4,6,8)
+ pielabels <- c("We hate\n pies","We oppose\n  pies","We don't\n  care","We just love pies")
+ # grab the radial positions of the labels
+ lp <- pie3D(pieval, radius=0.9, labels=pielabels, explode=0.1, main="3D PIE OPINIONS")
+```
+
